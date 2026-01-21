@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+:root {
+    --bg-main: #030510;
+    --card-bg: rgba(17, 25, 40, 0.75);
+    --primary-neon: #7551ff;
+    --secondary-neon: #4361ee;
+    --text-white: #ffffff;
+    --text-muted: #8b96ba;
+    --border-color: rgba(255, 255, 255, 0.1);
+    
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --blur-val: blur(12px);
+    --transition: 0.3s;
+}
+
+body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: radial-gradient(circle at top right, #161d42, var(--bg-main));
+    color: var(--text-white);
+    min-height: 100vh;
+}
+
+.auth-container, 
+.preferences-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: radial-gradient(circle at 10% 20%, rgba(117, 81, 255, 0.15) 0%, transparent 40%);
+    box-sizing: border-box;
+}
+
+.auth-card, 
+.preferences-card {
+    background: var(--card-bg);
+    backdrop-filter: var(--blur-val);
+    -webkit-backdrop-filter: var(--blur-val);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.auth-card h1, 
+.preferences-card h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #fff, #8b96ba);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.auth-card p, 
+.preferences-card p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.preferences-card h3 {
+    font-size: 18px;
+    color: white;
+    margin: 20px 0 10px 0;
+    text-align: left;
+}
+
+.auth-input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.preferences-card label {
+    display: block;
+    margin-bottom: 8px;
+    color: #a3aed0;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: left;
+}
+
+.auth-input-group input, 
+.preferences-card input[type="text"],
+.preferences-card select {
+    width: 100%;
+    padding: 14px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: white;
+    font-size: 16px;
+    transition: var(--transition);
+    box-sizing: border-box;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary-neon);
+    box-shadow: 0 0 15px rgba(117, 81, 255, 0.2);
+}
+
+.preferences-card select option {
+    background: #111c44;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.option-label {
+    display: flex; 
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.option-label:hover {
+    background: rgba(117, 81, 255, 0.1);
+}
+
+.option-label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--primary-neon) 0%, var(--secondary-neon) 100%);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 20px -5px rgba(117, 81, 255, 0.4);
+    transition: var(--transition);
+}
+
+.auth-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -5px rgba(117, 81, 255, 0.6);
+}
+
+.auth-footer {
+    margin-top: 25px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.auth-footer a {
+    color: var(--primary-neon);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-footer a:hover {
+    text-shadow: 0 0 8px var(--primary-neon);
+}
+
+.coin-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    border-radius: 12px;
+}
+
+.coin-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.coin-symbol {
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.coin-price {
+    color: var(--primary-neon);
+    font-size: 14px;
+}
+
+.mini-chart {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 120px;
+}
