@@ -158,7 +158,7 @@ app.get("/insight", async(req,res) =>{
                 headers: {
                     "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
                     "Content-Type": "application/json",
-                    "HTTP-Referer": "http://localhost:3000", 
+                    "HTTP-Referer": "https://crypto-app-q9rg.onrender.com", 
                     "X-Title": "Crypto Dashboard",
                 }
             }

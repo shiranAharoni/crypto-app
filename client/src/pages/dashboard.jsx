@@ -96,8 +96,9 @@ function Dashboard() {
             </header>
 
             <div className="dashboard-grid">
+                {/* כרטיסייה 1: מחירי שוק (data.coins) */}
                 <div className="card">
-                    <h2>Latest News</h2>
+                    <h2>Market Prices & Trends</h2>
                     <div className="card-content">
                         {data.coins.map(coin => (
                             <div key={coin.id} className="coin-row">
@@ -120,18 +121,24 @@ function Dashboard() {
                     </div>
                 </div>
 
+                {/* כרטיסייה 2: חדשות (data.news) */}
                 <div className="card">
-                    <h2>Market Prices & Trends</h2>
+                    <h2>Latest News</h2>
                     <div className="card-content">
-                        {data.news.slice(0, 3).map((item, idx) => (
-                            <div key={idx} className="news-item">
-                                <a href={item.url} target="_blank" rel="noreferrer">{item.title}</a>
-                                <VoteButtons cat="News" name={item.title} mini />
-                            </div>
-                        ))}
+                        {data.news && data.news.length > 0 ? (
+                            data.news.slice(0, 5).map((item, idx) => (
+                                <div key={idx} className="news-item">
+                                    <a href={item.url} target="_blank" rel="noreferrer">{item.title}</a>
+                                    <VoteButtons cat="News" name={item.title} mini />
+                                </div>
+                            ))
+                        ) : (
+                            <p>Loading updates...</p>
+                        )}
                     </div>
                 </div>
 
+                {/* תובנות AI ומם נשארים אותו דבר */}
                 <div className="card">
                     <h2>AI Market Insight</h2>
                     <div className="card-content">
