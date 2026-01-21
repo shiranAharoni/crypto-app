@@ -15,7 +15,7 @@ function Login(){
     const handleLogin = async() => {
 
         try{
-            const result = await axios.post("http://localhost:3000/login",{
+            const result = await axios.post("https://crypto-app-q9rg.onrender.com/login",{
             email: email,
             password: password
             });

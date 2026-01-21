@@ -20,11 +20,11 @@ function Dashboard() {
                 setUser(parsedUser);
 
                 const [prefRes, cryptoRes, newsRes, insightRes, memeRes] = await Promise.allSettled([
-                    axios.get(`http://localhost:3000/preferences/${parsedUser.id}`),
-                    axios.get("http://localhost:3000/crypto"),
-                    axios.get("http://localhost:3000/news"),
-                    axios.get("http://localhost:3000/insight"),
-                    axios.get("http://localhost:3000/meme")
+                    axios.get(`https://crypto-app-q9rg.onrender.com/preferences/${parsedUser.id}`),
+                    axios.get("https://crypto-app-q9rg.onrender.com/crypto"),
+                    axios.get("https://crypto-app-q9rg.onrender.com/news"),
+                    axios.get("https://crypto-app-q9rg.onrender.com/insight"),
+                    axios.get("https://crypto-app-q9rg.onrender.com/meme")
                 ]);
 
                 const allCoins = cryptoRes.status === 'fulfilled' ? cryptoRes.value.data : [];
@@ -55,7 +55,7 @@ function Dashboard() {
 
     const handleVote = async (category, itemName, voteType) => {
         try {
-            await axios.post("http://localhost:3000/vote", {
+            await axios.post("https://crypto-app-q9rg.onrender.com/vote", {
                 user_id: user.id,
                 category,
                 item_name: itemName,

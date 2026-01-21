@@ -16,7 +16,7 @@ function Register(){
     const handleRegister = async() => {
 
         try{
-            const result = await axios.post("http://localhost:3000/register",{
+            const result = await axios.post("https://crypto-app-q9rg.onrender.com/register",{
             name: name,
             email: email,
             password: password

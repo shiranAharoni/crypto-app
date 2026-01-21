@@ -36,7 +36,7 @@ function Preferences() {
                 content_preferences: selectedContent.join(", ")
             };
 
-            const response = await axios.post("http://localhost:3000/preferences", payload);
+            const response = await axios.post("https://crypto-app-q9rg.onrender.com/preferences", payload);
 
             alert(response.data.message);
 
