@@ -236,6 +236,35 @@ async function startServer() {
     try {
         await db.connect();
         console.log("Connected to PostgreSQL DB!");
+
+        const createTablesQuery = `
+            CREATE TABLE IF NOT EXISTS public.users (
+                id SERIAL PRIMARY KEY,
+                name CHARACTER VARYING(100),
+                email CHARACTER VARYING(100) UNIQUE,
+                password CHARACTER VARYING(255),
+                is_onboarded BOOLEAN DEFAULT FALSE
+            );
+
+            CREATE TABLE IF NOT EXISTS public.user_preferences (
+                id SERIAL PRIMARY KEY,
+                user_id INTEGER REFERENCES public.users(id) ON DELETE CASCADE,
+                favorite_coins TEXT,
+                investor_type CHARACTER VARYING(50),
+                content_preferences TEXT
+            );
+
+            CREATE TABLE IF NOT EXISTS public.votes (
+                id SERIAL PRIMARY KEY,
+                user_id INTEGER REFERENCES public.users(id) ON DELETE CASCADE,
+                category TEXT,
+                item_name TEXT,
+                vote_type TEXT
+            );
+        `;
+
+        await db.query(createTablesQuery);
+        console.log("Database tables are ready!");
         
         app.listen(port, () => {
             console.log(`Server running on port ${port}`);
